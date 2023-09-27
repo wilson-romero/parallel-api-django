@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'rest_framework', # Django REST Framework
 ]
 
+CUSTOM_APPS = [
+    'products', # Products app
+]
+
+INSTALLED_APPS += CUSTOM_APPS # Add custom apps to installed apps
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
