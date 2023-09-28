@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,7 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework', # Django REST Framework
+    'markdownx', # Markdownx
 ]
+
+CUSTOM_APPS = [
+    'products', # Products app
+]
+
+INSTALLED_APPS += CUSTOM_APPS # Add custom apps to installed apps
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +63,7 @@ ROOT_URLCONF = 'parallel.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +125,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
