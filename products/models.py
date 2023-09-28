@@ -10,7 +10,7 @@ class Product(models.Model):
     code = models.CharField(max_length=50, unique=True, db_index=True)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     name = models.CharField(max_length=255)
-    description = MarkdownxField()
+    description = MarkdownxField(default=None, null=True, blank=True)
     is_published = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
