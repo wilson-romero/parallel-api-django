@@ -8,7 +8,7 @@ from products.models import Product
 class ProductModelViewSet(ModelViewSet):
     queryset = Product.objects.all()
 
-    lookup_field = 'slug'
+    lookup_field = 'id'
 
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['code', 'name', 'description']
